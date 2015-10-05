@@ -3,20 +3,20 @@ package br.com.compositeam.gradplanner.model;
 import java.util.ArrayList;
 
 
-public class History {
+public class TranscriptOfRecords {
 	
 	private double ira; // IRA is a number who represents the mentions of a student
 	private Student student;
 	private ArrayList<Result> results;
 	
 	//Empty Constructor
-	public History()
+	public TranscriptOfRecords()
 	{
 		
 	}
 	
 	//Full constructor
-	public History(double ira, Student student, ArrayList<Result> results)
+	public TranscriptOfRecords(double ira, Student student, ArrayList<Result> results)
 	{
 		this.ira = ira;
 		this.student = student;
