@@ -5,7 +5,7 @@ public class Result {
 	private Student student;
 	//private ClassName classname; Commented because class not implemented yet.
 	private String description;
-	private String mention;
+	private Mention mention;
 	private int period;
 	
 	//Empty constructor
@@ -15,7 +15,7 @@ public class Result {
 	}
 	
 	//Full constructor
-	public Result(Student student, String description, String mention, int period)
+	public Result(Student student, String description, Mention mention, int period)
 	{
 		this.student = student;
 		this.description = description;
@@ -40,11 +40,11 @@ public class Result {
 		this.description = description;
 	}
 
-	public String getMention() {
+	public Mention getMention() {
 		return mention;
 	}
 
-	public void setMention(String mention) {
+	public void setMention(Mention mention) {
 		this.mention = mention;
 	}
 
