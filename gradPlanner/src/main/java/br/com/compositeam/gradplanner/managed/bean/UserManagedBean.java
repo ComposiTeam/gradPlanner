@@ -15,9 +15,9 @@ public class UserManagedBean {
 	private String email;
 	private String password;
 	private User user;
-	
-	private UserService userService;
 
+	private UserService userService;
+	
 	public String addUser(){
 		user = new User();
 		System.out.println(email);
@@ -29,6 +29,7 @@ public class UserManagedBean {
 		userService.save(user);
 		context.close();
 		return "sucess";
+
 	}
 	
 	public String getEmail(){
@@ -46,6 +47,7 @@ public class UserManagedBean {
 	public void setPassword(String password){
 		this.password = password;
 	}
+	
 	
 	public void reset(){
 		this.email = "";
