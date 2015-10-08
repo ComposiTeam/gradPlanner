@@ -4,10 +4,9 @@ public class Result {
 	
 	private Student student;
 	//private ClassName classname; Commented because class not implemented yet.
-
 	private Discipline discipline;
 	private Mention mention;
-	private int period;
+	private ClassPeriod period;
 	
 	//Empty constructor
 	public Result()
@@ -16,7 +15,7 @@ public class Result {
 	}
 	
 	//Full constructor
-	public Result(Student student, Discipline discipline, Mention mention, int period)
+	public Result(Student student, Discipline discipline ,String description, Mention mention, ClassPeriod period)
 	{
 		this.student = student;
 		this.discipline = discipline;
@@ -50,11 +49,11 @@ public class Result {
 		this.mention = mention;
 	}
 
-	public int getPeriod() {
+	public ClassPeriod getPeriod() {
 		return period;
 	}
 
-	public void setPeriod(int period) {
+	public void setPeriod(ClassPeriod period) {
 		this.period = period;
 	}
 	
