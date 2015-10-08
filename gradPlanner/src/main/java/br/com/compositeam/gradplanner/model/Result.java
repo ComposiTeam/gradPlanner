@@ -4,7 +4,8 @@ public class Result {
 	
 	private Student student;
 	//private ClassName classname; Commented because class not implemented yet.
-	private String description;
+
+	private Discipline discipline;
 	private Mention mention;
 	private int period;
 	
@@ -15,10 +16,10 @@ public class Result {
 	}
 	
 	//Full constructor
-	public Result(Student student, String description, Mention mention, int period)
+	public Result(Student student, Discipline discipline, Mention mention, int period)
 	{
 		this.student = student;
-		this.description = description;
+		this.discipline = discipline;
 		this.mention = mention;
 		this.period = period;
 	}
@@ -32,12 +33,13 @@ public class Result {
 		this.student = student;
 	}
 
-	public String getDescription() {
-		return description;
+
+	public Discipline getDiscipline() {
+		return discipline;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDiscipline(Discipline discipline) {
+		this.discipline = discipline;
 	}
 
 	public Mention getMention() {

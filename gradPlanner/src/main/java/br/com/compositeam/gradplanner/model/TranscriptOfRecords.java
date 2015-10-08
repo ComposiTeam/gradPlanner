@@ -64,4 +64,9 @@ public class TranscriptOfRecords {
 		return ira;
 	}
 
+<<<<<<< HEAD
+	
+
+=======
+>>>>>>> a186f25f99518f04b8f62653a791e9f9c9511712
 }

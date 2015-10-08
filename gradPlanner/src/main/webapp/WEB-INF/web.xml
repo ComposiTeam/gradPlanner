@@ -18,7 +18,8 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:/META-INF/spring/applicationContext.xml,
-                     classpath:/META-INF/spring/infrastructure.xml
+                     classpath:/META-INF/spring/infrastructure.xml,
+                     classpath:/spring.xml
         </param-value>
 	</context-param>
 
@@ -40,6 +41,10 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
+	<welcome-file-list>
+	    <welcome-file>index.xhtml</welcome-file>
+	</welcome-file-list>
 
 	<!-- Mapping with servlet and url for the http requests. -->
 	<servlet-mapping>
