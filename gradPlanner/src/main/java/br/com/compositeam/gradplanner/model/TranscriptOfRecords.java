@@ -28,6 +28,7 @@ public class TranscriptOfRecords {
 	}
 
 	public void setIra(Double ira) {
+		//Faltam validações
 		this.ira = ira;
 	}
 
@@ -54,6 +55,7 @@ public class TranscriptOfRecords {
 	 * */
 	private double calculateIRA(ArrayList<Result> results)
 	{
+		
 		double ira = 0;
 		
 		/**Method under construction**/
