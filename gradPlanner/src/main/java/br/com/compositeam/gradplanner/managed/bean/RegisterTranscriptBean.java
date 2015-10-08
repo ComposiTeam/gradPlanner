@@ -10,6 +10,7 @@ import javax.faces.bean.SessionScoped;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import br.com.compositeam.businessmodel.service.TranscriptOfRecordsService;
+import br.com.compositeam.businessmodel.service.UserService;
 import br.com.compositeam.gradplanner.model.ClassPeriod;
 import br.com.compositeam.gradplanner.model.Discipline;
 import br.com.compositeam.gradplanner.model.Mention;
@@ -34,6 +35,7 @@ public class RegisterTranscriptBean {
 	private Student student;
 	private String description;
 	private Mention mention;
+	private Discipline discipline;
 	private ClassPeriod period;
 	
 	private TranscriptOfRecordsService transcriptOfRecordsService;
@@ -46,41 +48,19 @@ public class RegisterTranscriptBean {
 	 */
 	private static Logger logger;
 
-	
-	/**
-	 * This method inserts into the arrayList of results a new result requested by the 
-	 * user into xhtml
-	 * return: No return
-	 * params: disciplineName -> Name of the discipline of the result
-	 * 			mentionAbreviation -> Abreviation of a mention of the discipline 
-	 * */
-	public void addResults(String disciplineName, String mentionAbreviation){
+	public void addResults(){
 		
-		//New instance of a result and its attributes
+		//New instance of a result
 		Result resultToInsert = new Result();
-		Discipline disciplineToInsert = new Discipline();
-		Mention mentionToInsert = new Mention();
-		
-		logger.info("Created instances of Result, Discipline and Mention");
-		
-		//Parameters of method attributed into discipline and mention
-		disciplineToInsert.setName(disciplineName);
-		mentionToInsert.setAbreviation(mentionAbreviation);
-		
-		logger.info("Attributed parameters of method into the instances of discipline and mention");
-		
-		//Attributing Discipline and mention into result
-		resultToInsert.setDiscipline(disciplineToInsert);
-		resultToInsert.setMention(mentionToInsert);
-		
-		logger.info("Attributed discipline and mention instances into result instance.");
+		ArrayList<Result> resultsList = new ArrayList<Result>();
 
-				
-		//Filling the arrayList
-		this.results.add(resultToInsert);
-		logger.info("Result inserted into Arraylist of Results");
-		
-	
+		resultToInsert.setDiscipline(discipline);
+		resultToInsert.setMention(mention);
+		resultsList.add(resultToInsert);
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+		transcriptOfRecordsService = context.getBean(TranscriptOfRecordsService.class);
+		transcriptOfRecordsService.save(resultsList);
+		context.close();
 	}
 	
 	
@@ -137,21 +117,22 @@ public class RegisterTranscriptBean {
 		this.mention = mention;
 	}
 
-	public int getPeriod() {
+	public ClassPeriod getPeriod() {
 		return period;
 	}
 
-	public void setPeriod(int period) {
+	public void setPeriod(ClassPeriod period) {
 		this.period = period;
 	}
-	
-	/**
-	 * This method inserts into the arrayList of results a new result requested by the 
-	 * user into xhtml
-	 * return: No return
-	 * params: disciplineName -> Name of the discipline of the result
-	 * 			mentionAbreviation -> Abreviation of a mention of the discipline 
-	 * */
 
+
+	public Discipline getDiscipline() {
+		return discipline;
+	}
+
+
+	public void setDiscipline(Discipline discipline) {
+		this.discipline = discipline;
+	}
 	
 }

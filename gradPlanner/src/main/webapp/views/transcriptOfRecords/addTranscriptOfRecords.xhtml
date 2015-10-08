@@ -13,15 +13,21 @@
 <h:body>
 	<h:form>
 		<table>
+		<tr><td><h:outputLabel for="discipline" value="Disciplina : " /></td>
+		<td><h:outputLabel for="mention" value="Menção : " /></td></tr>
+		
 			<tr>
-				<td><h:outputLabel for="discipline" value="Disciplina : " /></td>
-				<td><p:inputText id="discipline" value="#{transcriptMB.results.getDiscipline().getName()}">
-						<p:ajax event="blur" update="nameMsg" />
-					</p:inputText> <p:message id="nameMsg" for="discipline" display="icon" /></td>
-					<td><h:outputLabel for="mention" value="Mention : " /></td>
-				<td><p:inputText id="mention" value="#{transcriptMB.results.mention.description}">
+				
+				<td><p:inputText id="discipline" value="#{transcriptMB.discipline.name}">
+						<p:ajax event="blur" update="disciplineMsg" />
+					</p:inputText> <p:message id="disciplineMsg" for="discipline" display="icon" /></td>
+					
+				<td><p:inputText id="mention" value="#{transcriptMB.mention.abreviation}">
 						<p:ajax event="blur" update="nameMsg" />
 					</p:inputText> <p:message id="nameMsg" for="mention" display="icon" /></td>
+				<td><p:commandButton id="registerBtn" value="Registrar"
+						action="#{transcriptMB.addResults}" ajax="false" /></td>
+					
 			</tr>
 		</table>
 	</h:form>
