@@ -1,6 +1,7 @@
 package br.com.compositeam.gradplanner.managed.bean;
 
 import java.awt.event.ActionEvent;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import br.com.compositeam.gradplanner.model.Mention;
@@ -16,6 +18,9 @@ import br.com.compositeam.gradplanner.model.Result;
 import br.com.compositeam.gradplanner.model.Student;
 import br.com.compositeam.gradplanner.model.TranscriptOfRecords;
 import br.com.compositeam.businessmodel.service.TranscriptOfRecordsService;;
+
+import br.com.compositeam.gradplanner.model.TranscriptOfRecords;
+
 
 /*
  * Annotation to set up the name we use to call this 
@@ -29,7 +34,7 @@ import br.com.compositeam.businessmodel.service.TranscriptOfRecordsService;;
 @SessionScoped
 public class RegisterTranscriptBean {
 
-	private TranscriptOfRecords transcriptOfRecords;
+
 	private Student student;
 	private String description;
 	private Mention mention;
@@ -39,11 +44,13 @@ public class RegisterTranscriptBean {
 	private ArrayList<Result> results;
 	private Double ira;
 	private Result result;
+
 	/*
 	 * Log will be used to help the code debug
 	 */
 	private static Logger logger;
 	
+
 	public String addResults(){
 		
 		List<Result> results = new ArrayList<Result>();

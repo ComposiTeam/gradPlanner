@@ -4,6 +4,7 @@ public class Result {
 	
 	private Student student;
 	//private ClassName classname; Commented because class not implemented yet.
+
 	private Discipline discipline;
 	private Mention mention;
 	private int period;
@@ -31,6 +32,7 @@ public class Result {
 	public void setStudent(Student student) {
 		this.student = student;
 	}
+
 
 	public Discipline getDiscipline() {
 		return discipline;
