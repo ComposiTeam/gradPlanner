@@ -1,24 +1,20 @@
 package br.com.compositeam.gradplanner.managed.bean;
 
-import java.awt.event.ActionEvent;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
-
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import br.com.compositeam.businessmodel.service.TranscriptOfRecordsService;
+import br.com.compositeam.gradplanner.model.ClassPeriod;
+import br.com.compositeam.gradplanner.model.Discipline;
 import br.com.compositeam.gradplanner.model.Mention;
 import br.com.compositeam.gradplanner.model.Result;
 import br.com.compositeam.gradplanner.model.Student;
-import br.com.compositeam.gradplanner.model.TranscriptOfRecords;
-import br.com.compositeam.businessmodel.service.TranscriptOfRecordsService;;
-
 import br.com.compositeam.gradplanner.model.TranscriptOfRecords;
 
 
@@ -38,7 +34,7 @@ public class RegisterTranscriptBean {
 	private Student student;
 	private String description;
 	private Mention mention;
-	private int period;
+	private ClassPeriod period;
 	
 	private TranscriptOfRecordsService transcriptOfRecordsService;
 	private ArrayList<Result> results;
@@ -49,22 +45,47 @@ public class RegisterTranscriptBean {
 	 * Log will be used to help the code debug
 	 */
 	private static Logger logger;
-	
 
-	public String addResults(){
+	
+	/**
+	 * This method inserts into the arrayList of results a new result requested by the 
+	 * user into xhtml
+	 * return: No return
+	 * params: disciplineName -> Name of the discipline of the result
+	 * 			mentionAbreviation -> Abreviation of a mention of the discipline 
+	 * */
+	public void addResults(String disciplineName, String mentionAbreviation){
 		
-		List<Result> results = new ArrayList<Result>();
-		result.setPeriod(period);
-		result.setDescription(description);
-		result.setMention(mention);
+		//New instance of a result and its attributes
+		Result resultToInsert = new Result();
+		Discipline disciplineToInsert = new Discipline();
+		Mention mentionToInsert = new Mention();
 		
+		logger.info("Created instances of Result, Discipline and Mention");
 		
-		return "sucess";
+		//Parameters of method attributed into discipline and mention
+		disciplineToInsert.setName(disciplineName);
+		mentionToInsert.setAbreviation(mentionAbreviation);
+		
+		logger.info("Attributed parameters of method into the instances of discipline and mention");
+		
+		//Attributing Discipline and mention into result
+		resultToInsert.setDiscipline(disciplineToInsert);
+		resultToInsert.setMention(mentionToInsert);
+		
+		logger.info("Attributed discipline and mention instances into result instance.");
+
+				
+		//Filling the arrayList
+		this.results.add(resultToInsert);
+		logger.info("Result inserted into Arraylist of Results");
+		
+	
 	}
 	
 	
 	public String addTranscript(ArrayList<Result> results){
-		transcriptOfRecords = new TranscriptOfRecords();
+		TranscriptOfRecords transcriptOfRecords = new TranscriptOfRecords();
 		logger.info("A new instance of transcript of record is being created");
 		//logger.info();
 		
@@ -123,5 +144,14 @@ public class RegisterTranscriptBean {
 	public void setPeriod(int period) {
 		this.period = period;
 	}
+	
+	/**
+	 * This method inserts into the arrayList of results a new result requested by the 
+	 * user into xhtml
+	 * return: No return
+	 * params: disciplineName -> Name of the discipline of the result
+	 * 			mentionAbreviation -> Abreviation of a mention of the discipline 
+	 * */
+
 	
 }

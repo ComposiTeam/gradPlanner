@@ -1,9 +1,11 @@
 package br.com.compositeam.gradplanner.model;
 
+
+
 public class Result {
 	
 	private Student student;
-	//private ClassName classname; Commented because class not implemented yet.
+	private Class className;
 	private Discipline discipline;
 	private Mention mention;
 	private ClassPeriod period;
@@ -32,6 +34,14 @@ public class Result {
 		this.student = student;
 	}
 
+	
+	public Class getClassName() {
+		return className;
+	}
+
+	public void setClassName(Class className) {
+		this.className = className;
+	}
 
 	public Discipline getDiscipline() {
 		return discipline;
@@ -56,6 +66,7 @@ public class Result {
 	public void setPeriod(ClassPeriod period) {
 		this.period = period;
 	}
+	
 	
 
 	

@@ -7,15 +7,21 @@
 
 <h:head>
 	<title>Adicionar Histórico Escolar</title>
+	<h1>Adicionar Histórico Escolar</h1>
 </h:head>
+
 <h:body>
 	<h:form>
 		<table>
 			<tr>
 				<td><h:outputLabel for="discipline" value="Disciplina : " /></td>
-				<td><p:inputText id="discipline" value="#{transcriptMB.result.discipline.name}">
+				<td><p:inputText id="discipline" value="#{transcriptMB.results.getDiscipline().getName()}">
 						<p:ajax event="blur" update="nameMsg" />
 					</p:inputText> <p:message id="nameMsg" for="discipline" display="icon" /></td>
+					<td><h:outputLabel for="mention" value="Mention : " /></td>
+				<td><p:inputText id="mention" value="#{transcriptMB.results.mention.description}">
+						<p:ajax event="blur" update="nameMsg" />
+					</p:inputText> <p:message id="nameMsg" for="mention" display="icon" /></td>
 			</tr>
 		</table>
 	</h:form>
